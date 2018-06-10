@@ -69,7 +69,10 @@
     "webdriver:start": "npm run webdriver-manager start",
     "webdriver:update": "webdriver-manager update",
     "webpack-dev-server": "node --max_old_space_size=4096 node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js"
+    "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js",
+    "sw": "sw-precache --root=dist --config=sw-precache-config.js",
+    "buildtotal": "npm run build:prod && npm run sw ",
+    "runtotal": "concurrently \"npm run server:prod:ci\" \"node server-start.js\" "
   },
   "dependencies": {
     "@angular/animations": "~4.3.0",
@@ -129,7 +132,7 @@
     "@angular/compiler-cli": "~4.3.0",
     "@types/hammerjs": "^2.0.34",
     "@types/jasmine": "2.5.45",
-    "@types/node": "^7.0.13",
+    "@types/node": "^7.0.65",
     "@types/source-map": "^0.5.0",
     "@types/uglify-js": "^2.6.28",
     "@types/webpack": "^2.2.15",
@@ -188,6 +191,7 @@
     "source-map-loader": "^0.2.1",
     "string-replace-loader": "~1.2.0",
     "style-loader": "^0.18.1",
+    "sw-precache": "^5.2.1",
     "to-string-loader": "^1.1.5",
     "ts-node": "^3.0.2",
     "tslib": "^1.6.1",
